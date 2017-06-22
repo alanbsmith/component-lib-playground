@@ -1,45 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Button,
-  Card,
-  Header,
   Label,
+  SimpleForm,
   TextField,
-  TextWrapper,
 } from 'example-component-lib';
 
 import '../assets/stylesheets/base.scss';
 
 
 const App = ({ name }) => {
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log('submitting!');
+  }
+
   return (
     <div>
-      <Card>
-        <Header>Login</Header>
+      <SimpleForm
+        headerText="Login"
+        onSubmit={handleSubmit}
+      >
         <Label>email</Label>
         <TextField
-          activeColor="purple"
         />
         <Label>password</Label>
         <TextField
-          activeColor="purple"
           type="password"
         />
-        <TextWrapper textAlign="right">
-        <Button
-          bgColor="white"
-          fontColor="purple"
-        >
-          Cancel
-        </Button>
-        <Button
-          bgColor="purple"
-        >
-          Submit
-        </Button>
-      </TextWrapper>
-    </Card>
+      </SimpleForm>
     </div>
   );
 };
